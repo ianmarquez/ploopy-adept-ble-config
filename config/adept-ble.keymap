@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT 0
@@ -23,14 +24,6 @@
     };
 
     behaviors {
-        ltm: layer-tap-or-mouse {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&mkp>;
-        };
-
         lhm: layer-tap-hold-or-mouse {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -40,13 +33,15 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        mto: momentary-and-toggle {
+        lhk: layer-hold-keypress {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
-            hold-while-undecided;
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&to>;
+            bindings = <&mo>, <&kp>;
+
+            label = "Layer Hold Keypress";
+            quick-tap-ms = <200>;
         };
     };
 
@@ -55,43 +50,22 @@
 
         default_layer {
             bindings = <
-&ltm BLTH MB4  &ltm DEVICE MB5  &mkp MCLK  &lhm SCRLM RCLK
-&mkp LCLK      &mkp RCLK
-            >;
-        };
-
-        scroll_tap_layer {
-            bindings = <
-&trans     &trans  &to SCRLH  &trans
-&to SCRLH  &trans
-            >;
-        };
-
-        scroll_hold_layer {
-            bindings = <
-&trans  &trans       &trans  &to DEFAULT
-&trans  &to DEFAULT
-            >;
-        };
-
-        device_layer {
-            bindings = <
-&bootloader  &trans      &trans  &trans
-&trans       &bt BT_CLR
+&lhk 1 F3  &kp F12    &kp F11  &lhm 2 MCLK
+&mkp LCLK  &mkp RCLK
             >;
         };
 
         bluetooth_layer {
             bindings = <
-&trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-&bt BT_SEL 3  &bt BT_SEL 4
+&trans          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+&bt BT_CLR_ALL  &bt BT_CLR
             >;
         };
 
-        snipe_layer {
+        scroll_hold_layer {
             bindings = <
-&trans  &trans       &trans  &lhm SCRLM RCLK
-&trans  &to DEFAULT
+&trans  &trans  &trans  &trans
+&trans  &trans
             >;
         };
     };
