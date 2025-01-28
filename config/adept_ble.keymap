@@ -3,7 +3,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT 0
 #define SCRLM 1
@@ -24,7 +23,7 @@
     };
 
     behaviors {
-        lhm: layer-tap-hold-or-mouse {
+        lhm: layer-hold-or-mouse {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -33,7 +32,7 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        lhk: layer-hold-keypress {
+        lhk: layer-hold-or-keypress {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
