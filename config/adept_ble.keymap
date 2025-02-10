@@ -3,7 +3,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-/* #include <dt-bindings/zmk/pointing.h> */
 
 / {
     combos {
@@ -27,9 +26,9 @@
         };
         slm: sticky-layer-or-mouse {
             compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&mkp>, <&sl>;
+            bindings = <&mkp RCLK>, <&sl 1>;
         };
 
         lhk: layer-hold-or-keypress {
