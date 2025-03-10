@@ -63,7 +63,7 @@
         scroll_hold_layer {
             bindings = <
 &trans  &trans  &trans  &sl 2
-&trans  &trans
+&bootloader  &trans
             >;
         };
     };
