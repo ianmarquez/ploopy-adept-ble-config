@@ -48,22 +48,29 @@
 
         default_layer {
             bindings = <
-&lhk 1 F12  &kp LC(UP_ARROW)  &kp F11  &mkp MB3
-&mkp LCLK  &lhm 2 RCLK
+              &lhk 1 F12 &lhk 3 LC(UP_ARROW)  &kp F11  &mkp MB3
+              &mkp LCLK                                &lhm 2 RCLK
             >;
         };
 
         bluetooth_layer {
             bindings = <
-&trans          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-&bt BT_CLR_ALL  &bt BT_CLR
+              &trans          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+              &bt BT_CLR_ALL                              &bt BT_CLR
             >;
         };
 
         scroll_hold_layer {
             bindings = <
-&trans  &trans  &trans  &sl 2
-&bootloader  &trans
+              &trans  &trans  &trans  &bootloader
+              &trans                  &trans
+            >;
+        };
+
+        keyboard_commands_layer {
+            bindings = <
+              &trans     &trans     &trans  &trans
+              &kp LC(C)                     &kp LC(V)
             >;
         };
     };
