@@ -69,8 +69,8 @@
 
         keyboard_commands_layer {
             bindings = <
-              &trans     &trans  &trans  &trans
-              &kp LG(C)                  &kp LG(V)
+              &kp C_VOLUME_DOWN  &trans  &kp C_VOLUME_UP  &kp BSPC
+              &kp LG(C)                                   &kp LG(V)
             >;
         };
     };
