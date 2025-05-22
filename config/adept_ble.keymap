@@ -48,7 +48,7 @@
         default_layer {
             bindings = <
 &lhk 1 F12   &lhk 3 LC(UP_ARROW)  &kp F11  &mo 2
-&mouse_keys  &mkp RCLK
+&mkp LCLK    &mkp RCLK
             >;
         };
 
